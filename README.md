@@ -26,20 +26,21 @@ Reimplementation of the popular linux `cowsay` from
 
 **Usage:** `curl cowsay.cli.tools/flag/flag...?option=value...`
 
-| Flags | Location | Default | Description     |
-|-------|----------|---------|-----------------|
-| n     | Path     | false   | Allow new lines |
-| W     | GET      | 40      | Max columns     |
-| b     | Path     | false   | Style: Borg     |
-| d     | Path     | false   | Style: Dead     |
-| g     | Path     | false   | Style: Greedy   |
-| p     | Path     | false   | Style: Paranoid |
-| s     | Path     | false   | Style: Stoned   |
-| t     | Path     | false   | Style: Tired    |
-| w     | Path     | false   | Style: Wired    |
-| y     | Path     | false   | Style: Young    |
-| E     | GET      | (style) | Custom Eyes     |
-| T     | GET      | (style) | Custom Tongue   |
+| Flags | Location | Default | Description                   |
+|-------|----------|---------|-------------------------------|
+| n     | Path     | false   | Allow new lines               |
+| W     | GET      | 40      | Max columns                   |
+| b     | Path     | false   | Style: Borg                   |
+| d     | Path     | false   | Style: Dead                   |
+| g     | Path     | false   | Style: Greedy                 |
+| p     | Path     | false   | Style: Paranoid               |
+| s     | Path     | false   | Style: Stoned                 |
+| t     | Path     | false   | Style: Tired                  |
+| w     | Path     | false   | Style: Wired                  |
+| y     | Path     | false   | Style: Young                  |
+| E     | GET      | (style) | Custom Eyes                   |
+| T     | GET      | (style) | Custom Tongue                 |
+| msg   | GET      | null    | Use instead of sending a body |
 
 ```
 # curl cowsay.cli.tools
