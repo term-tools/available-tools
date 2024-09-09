@@ -21,37 +21,37 @@ new line. You can remove the new line by appending `/r` for raw.
 
 ## cowsay.cli.tools
 
-Reimplementation of the popular linux `cowsay` from
-`Tony Monroe (tony@nog.net)`.
+Reimplementation of the popular linux `cowsay` from `Tony Monroe (tony@nog.net)`.
 
-**Usage:** `curl cowsay.cli.tools/flag/flag...?option=value...`
+**Usage:** `curl cowsay.cli.tools/option=value/option=value...?option=value...`
 
-| Flags | Location | Default | Description                   |
-|-------|----------|---------|-------------------------------|
-| n     | Path     | false   | Allow new lines               |
-| W     | GET      | 40      | Max columns                   |
-| b     | Path     | false   | Style: Borg                   |
-| d     | Path     | false   | Style: Dead                   |
-| g     | Path     | false   | Style: Greedy                 |
-| p     | Path     | false   | Style: Paranoid               |
-| s     | Path     | false   | Style: Stoned                 |
-| t     | Path     | false   | Style: Tired                  |
-| w     | Path     | false   | Style: Wired                  |
-| y     | Path     | false   | Style: Young                  |
-| E     | GET      | (style) | Custom Eyes                   |
-| T     | GET      | (style) | Custom Tongue                 |
-| msg   | GET      | null    | Use instead of sending a body |
+| Options                | Location | Default | Description                   |
+|------------------------|----------|---------|-------------------------------|
+| `n \| no-newline`      | Path     |         | Remove last newline           |
+| `w= \| width=`         | GET      | 40      | Max columns                   |
+| `s= \| style=borg`     | Path     |         | Style: Borg                   |
+| `s= \| style=dead`     | Path     |         | Style: Dead                   |
+| `s= \| style=greedy`   | Path     |         | Style: Greedy                 |
+| `s= \| style=paranoid` | Path     |         | Style: Paranoid               |
+| `s= \| style=stoned`   | Path     |         | Style: Stoned                 |
+| `s= \| style=tired`    | Path     |         | Style: Tired                  |
+| `s= \| style=wired`    | Path     |         | Style: Wired                  |
+| `s= \| style=young`    | Path     |         | Style: Young                  |
+| `m= \| msg=`           | GET      | null    | Use instead of sending a body |
+
+> [!note]
+> Short options are only available as a path option.
 
 ```
 # curl cowsay.cli.tools
- ______________________________
-< Welcome to cowsay.cli.tools! >
- ------------------------------
-        \   ^__^
-         \  (oo)\_______
-            (__)\       )\/\
-                ||----w |
-                ||     ||
+ _____________
+< No Mooosage >
+ -------------
+    \   ^__^
+     \  (oo)\_______
+        (__)\       )\/\
+            ||----w |
+            ||     ||
 # curl cowsay.cli.tools -d 'Example Test!'
  _______________
 < Example Test! >
@@ -76,17 +76,6 @@ Nullam sit amet nisl id sapien consectetur venenatis.
 # curl cowsay.cli.tools --data-binary @test.txt
  __________________________________________
 / Lorem ipsum dolor sit amet, consectetur  \
-| adipiscing elit. Nullam sit amet nisl id |
-\ sapien consectetur venenatis.            /
- ------------------------------------------
-        \   ^__^
-         \  (oo)\_______
-            (__)\       )\/\
-                ||----w |
-                ||     ||
-# curl cowsay.cli.tools/n --data-binary @test.txt
- __________________________________________
-/ Lorem ipsum dolor sit amet, consectetur  \
 | adipiscing elit.                         |
 | Nullam sit amet nisl id sapien consectet |
 \ ur venenatis.                            /
@@ -96,7 +85,7 @@ Nullam sit amet nisl id sapien consectetur venenatis.
             (__)\       )\/\
                 ||----w |
                 ||     ||
-# curl cowsay.cli.tools/n/p --data-binary @test.txt
+# curl cowsay.cli.tools/s=paranoid --data-binary @test.txt
  __________________________________________
 / Lorem ipsum dolor sit amet, consectetur  \
 | adipiscing elit.                         |
@@ -108,7 +97,7 @@ Nullam sit amet nisl id sapien consectetur venenatis.
             (__)\       )\/\
                 ||----w |
                 ||     ||
-# curl cowsay.cli.tools/n/p?W=100 --data-binary @test.txt
+# curl cowsay.cli.tools/s=paranoid?width=100 --data-binary @test.txt
  __________________________________________________________
 / Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
 \ Nullam sit amet nisl id sapien consectetur venenatis.    /
